@@ -3,7 +3,7 @@ import { fetchProducts } from './api.js'
 export const renderProducts = async () => {
 	const productsWrapper = document.querySelector('.products__wrapper')
 	const products = await fetchProducts()
-	productsWrapper.innerHTML = '' // Очищаем контейнер перед добавлением
+	productsWrapper.innerHTML = '' 
 
 	products.forEach(({ node }) => {
         console.log(node);
@@ -23,9 +23,9 @@ export const renderProducts = async () => {
 			currencyCode: '',
 		}
 
-		// Берем первое изображение (основное) и второе (если есть)
+	
 		const imageUrl = imageEdges[0]?.node?.url || './default.jpg'
-		const hoverImageUrl = imageEdges[1]?.node?.url || imageUrl // Если второго нет, оставляем первое
+		const hoverImageUrl = imageEdges[1]?.node?.url || imageUrl 
 
 		const productHTML = `
 			<div class="products__item">
@@ -50,7 +50,7 @@ export const renderProducts = async () => {
 		productsWrapper.insertAdjacentHTML('beforeend', productHTML)
 	})
 
-	// Добавляем логику hover для всех товаров
+
 	document.querySelectorAll('.product__item-img').forEach(img => {
 		const hoverImg = img.getAttribute('data-hover-img')
 		const originalImg = img.src
