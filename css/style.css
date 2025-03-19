@@ -1,0 +1,179 @@
+@font-face {
+	font-family: 'Helvetica Neue';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+		url('../fonts/HelveticaNeueCyr-Bold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Helvetica Neue';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+		url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff');
+}
+
+body {
+	font-family: 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	color: #000000;
+	font-size: 20px;
+	line-height: 150%;
+}
+.container {
+	max-width: 1320px;
+	padding: 0 20px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.main {
+	padding: 40px 0;
+}
+.main__title {
+	font-weight: 700;
+	font-size: clamp(32px, 5vw, 40px);
+	line-height: 150%;
+	margin-bottom: 20px;
+}
+.main__text {
+	font-weight: 400;
+	font-size: clamp(14px, 2vw, 20px);
+	line-height: 150%;
+}
+.product {
+}
+.products__wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+
+.product__item-img {
+	width: 100%; /* Растягивается на всю ширину родителя */
+	aspect-ratio: 4 / 5; /* Соотношение сторон — все изображения одинаковые */
+	object-fit: cover; /* Заполняет область, сохраняя пропорции */
+	border-radius: 16px;
+}
+.product__item-name {
+	font-weight: 700;
+	font-size: clamp(14px, 5vw, 16px);
+	line-height: 100%;
+}
+.product__item-descriptions {
+	font-weight: 400;
+	font-size: clamp(12px, 2vw, 14px);
+	line-height: 150%;
+}
+.product__item-price-old {
+	font-weight: 400;
+	font-size: 16px;
+	 font-size: clamp(14px, 2vw, 16px);
+	text-decoration: line-through;
+}
+.product__item-price-new {
+	font-weight: 700;
+    font-size: clamp(14px, 2vw, 16px);
+	line-height: 150%;
+}
+.info {
+	padding: 100px 0px 20px 0px;
+}
+.info__wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+.info__text-block {
+	flex: 0 1 47%;
+}
+.info__title-block {
+	max-width: 100%;
+	font-weight: 700;
+	font-size: clamp(24px, 5vw, 40px);
+	line-height: 150%;
+}
+.info__text-block {
+	max-width: 515px;
+	font-weight: 400;
+	font-size: clamp(14px, 2vw, 20px);
+	line-height: 150%;
+}
+.info__url-block {
+	border-bottom: 1px solid #000000;
+}
+.info__accordion {
+	flex: 0 1 47%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.accordion-item {
+	padding: 15px 20px;
+	border-radius: 12px;
+	background: #f7f8fb;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 150%;
+	margin-bottom: 20px;
+}
+.accordion-item:hover {
+	background: #e0e0e0;
+}
+.accordion-header {
+	cursor: pointer;
+	font-size: 16px;
+	transition: background 0.3s;
+	display: flex;
+	justify-content: space-between;
+}
+
+.accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	padding: 0px;
+	transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.accordion-header__icon {
+	width: 24px;
+	height: 24px;
+}
+
+.accordion-content p {
+	font-weight: 400;
+	padding-top: 15px;
+	font-size: 20px;
+	line-height: 150%;
+	font-size: 16px;
+	color: #333;
+}
+.info__url-block .active {
+	padding: 15px 0;
+}
+.active p {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 150%;
+	margin: 0px 0 10px 0;
+}
+@media (max-width: 1050px) {
+	.products__wrapper {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+	}
+}
+@media (max-width: 768px) {
+	.products__wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+	.info__wrapper {
+		flex-direction: column;
+		gap: 20px;
+	}
+}
+@media (max-width: 500px) {
+	.accordion-header__title {
+		max-width: 188px;
+	}
+}
