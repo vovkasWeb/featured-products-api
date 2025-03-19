@@ -21,16 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('.accordion-header').forEach(header => {
 		header.addEventListener('click', function () {
 			let content = this.nextElementSibling
-			let parentItem = this.parentElement // Получаем родительский .accordion-item
-			let icon = this.querySelector('.info__accordion-icon') // Находим иконку
+			let parentItem = this.parentElement
+			let icon = this.querySelector('.info__accordion-icon') 
 
-			// Закрываем все остальные
+			
 			document.querySelectorAll('.accordion-content').forEach(item => {
 				if (item !== content) {
 					item.style.maxHeight = null
-					item.parentElement.style.background = '' // Сбрасываем фон
+					item.parentElement.style.background = ''
 
-					// Меняем иконки обратно на плюс
 					let otherIcon = item.previousElementSibling.querySelector(
 						'.info__accordion-icon'
 					)
@@ -40,15 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			})
 
-			// Переключаем активный класс, фон и иконку
+			
 			if (content.style.maxHeight) {
 				content.style.maxHeight = null
-				parentItem.style.background = '' // Убираем фон
-				if (icon) icon.src = './img/plus.png' // Меняем иконку обратно
+				parentItem.style.background = '' 
+				if (icon) icon.src = './img/plus.png' 
 			} else {
 				content.style.maxHeight = content.scrollHeight + 'px'
-				parentItem.style.background = '#D7ECEC' // Добавляем новый фон
-				if (icon) icon.src = './img/minus.png' // Меняем иконку на минус
+				parentItem.style.background = '#D7ECEC' 
+				if (icon) icon.src = './img/minus.png' 
 			}
 		})
 	})
